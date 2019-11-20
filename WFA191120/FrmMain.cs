@@ -31,7 +31,7 @@ namespace WFA191120
             //törlök a formról minden szart:
             this.Controls.Clear();
 
-            //bejárom a mátroxot:
+            //bejárom a mátrixot:
             for (int o = 0; o < matrix.GetLength(0); o++)
             {
                 for (int s = 0; s < matrix.GetLength(1); s++)
@@ -45,7 +45,7 @@ namespace WFA191120
                         Location = new Point(o * 100, s * 100),
                         //3 véletlen szám a színének RGB kódja:
                         BackColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256)),
-                        Text = $"s: {s + 1}, o: {o + 1}"
+                        Text = $"s: {s + 1}, o: {o + 1}",
                     };
 
                     //hozzá kell adni a control-listához (elhagytam a this-t)
