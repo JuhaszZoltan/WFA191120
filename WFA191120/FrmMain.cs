@@ -32,27 +32,28 @@ namespace WFA191120
             this.Controls.Clear();
 
             //bejárom a mátroxot:
-            for (int s = 0; s < matrix.GetLength(0); s++)
+            for (int o = 0; o < matrix.GetLength(0); o++)
             {
-                for (int o = 0; o < matrix.GetLength(1); o++)
+                for (int s = 0; s < matrix.GetLength(1); s++)
                 {
                     //íme az "egyszerűbb" szintax több tulajdonság beállítására
                     //figyelj rá, hogy VESSZŐ és nem PONTOSVESSZŐ van a tulajdonságok közt
-                    matrix[s, o] = new Button()
+                    matrix[o, s] = new Button()
                     {
                         Width = 100,
                         Height = 100,
-                        Location = new Point(s * 100, o * 100),
+                        Location = new Point(o * 100, s * 100),
                         //3 véletlen szám a színének RGB kódja:
                         BackColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256)),
+                        Text = $"s: {s + 1}, o: {o + 1}"
                     };
 
                     //hozzá kell adni a control-listához (elhagytam a this-t)
-                    Controls.Add(matrix[s, o]);
+                    Controls.Add(matrix[o, s]);
 
                     //létrehuk neki egy eseménykezelőt
                     // += begépelése után tabulátor, és legenerálja a fejrészt
-                    matrix[s, o].Click += GombKattintas;
+                    matrix[o, s].Click += GombKattintas;
                 }
             }
         }
